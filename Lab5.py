@@ -54,14 +54,16 @@ def binary_to_hex(binary):
                 hex += "E"
             elif place == 15:
                 hex += "F"
-        elif place == 0:
-            continue
         else:
             hex += str(place)
 
-    #reverse order\
+    #reverse order
     newhex = ""
     for letter in range(len(hex)-1, -1, -1):
+        if hex[letter] == "0":
+            if newhex == "":
+                continue
+
         newhex += hex[letter]
 
     return newhex
